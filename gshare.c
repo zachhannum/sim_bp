@@ -62,17 +62,21 @@ int process_gshare_table(){
   int ghr_dec;
   int j = 0;
 
+
   //get h index from PC address
   for(int i = length - 2 - ig; i < (length - 2 - ig + h); i ++){
     h_index[j++] = currentAddressBinary[i];
   }
   h_index[j] = '\0';
+
   j = 0;
   //get ig - h index from PC address
   for(int i = length - 2 - ig + h; i < (length - 2); i ++){
     remainder_index[j++] = currentAddressBinary[i];
   }
   remainder_index[j] = '\0';
+
+
 
   //XOR h index with ghr
   ghr_dec = strtoll(ghr, NULL, 2);
@@ -86,10 +90,15 @@ int process_gshare_table(){
     h_index[i] = (h_index_dec & mask) ? '1' : '0';
     h_index_dec <<= 1;
   }
+
   strcpy(index_bin, h_index);
-  strcat(index_bin, remainder_index);
+  if(ig > h){
+    strcat(index_bin, remainder_index);
+  }
+
 
   gshare_index_dec = strtoll(index_bin, NULL, 2);
+
 
   //shift ghr to right
   for(int i = h - 1; i > 0; i--){

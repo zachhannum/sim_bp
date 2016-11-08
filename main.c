@@ -98,15 +98,19 @@ int main(int argc, char **argv){
   switch (predictor){
     case bimodal:
       fprintf(out, "Command Line:\n %s %s %s %s %s %s\n", argv[0], argv[1], argv[2], argv[3], argv[4], argv[5]);
+      printf(out"Command Line:\n %s %s %s %s %s %s\n", argv[0], argv[1], argv[2], argv[3], argv[4], argv[5]);
       break;
     case gshare:
+      printf("Command Line:\n %s %s %s %s %s %s %s\n", argv[0], argv[1], argv[2], argv[3], argv[4], argv[5], argv[6]);
       fprintf(out, "Command Line:\n %s %s %s %s %s %s %s\n", argv[0], argv[1], argv[2], argv[3], argv[4], argv[5], argv[6]);
       break;
     case hybrid:
       fprintf(out, "Command Line:\n %s %s %s %s %s %s %s %s %s\n", argv[0], argv[1], argv[2], argv[3], argv[4], argv[5], argv[6], argv[7], argv[8]);
+      printf("Command Line:\n %s %s %s %s %s %s %s %s %s\n", argv[0], argv[1], argv[2], argv[3], argv[4], argv[5], argv[6], argv[7], argv[8]);
       break;
     case yehpatt:
       fprintf(out, "Command Line:\n %s %s %s %s %s %s %s\n", argv[0], argv[1], argv[2], argv[3], argv[4], argv[5], argv[6]);
+      printf("Command Line:\n %s %s %s %s %s %s %s\n", argv[0], argv[1], argv[2], argv[3], argv[4], argv[5], argv[6]);
       break;
   }
 
@@ -142,12 +146,10 @@ int main(int argc, char **argv){
   /* Open trace file */
   FILE *fp = fopen(trace, "r");
 
-
 //========== Main Loop ===============
   while(fgets(buff, sizeof buff, fp) != NULL){
     //Clear all arrays for next memory location
     memset(currentAddressBinary, 0, 128);
-
     //increment branch counter
     branch_counter++;
     //Fill PC address array
@@ -191,6 +193,7 @@ int main(int argc, char **argv){
           break;
       }
     }
+
 
   }
   //========== End Main Loop =============

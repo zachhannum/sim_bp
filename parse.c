@@ -20,6 +20,7 @@ extern int * bimodal_table;
 
 char * trace;
 extern int branch_outcome;
+extern char buff[64];
 
 
 void get_PC_address(){
