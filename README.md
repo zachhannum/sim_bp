@@ -8,7 +8,7 @@ the predicted result.
 Command line arguments differ depending on which type of predictor is being used.
 ####bimodal
 The bimodal predictor uses
-`>./sim_bp <i^B^> <L1_SIZE> <L1_ASSOC> <L2SIZE> <L2_ASSOC> <REPL_POLICY> <INCLUSION> <TRACE_FILE>`
+`>./sim_bp <i<sub>B</sub> <L1_SIZE> <L1_ASSOC> <L2SIZE> <L2_ASSOC> <REPL_POLICY> <INCLUSION> <TRACE_FILE>`
 
 **Note that for this project, the BTB does not really do anything, as all addresses are branches anyways.*
 
